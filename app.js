@@ -1,18 +1,14 @@
-//selectors
 const todoInput = document.querySelector('.todo_input');
 const todoButton = document.querySelector('.todo_button');
-// const filterOption = document.querySelector('.filter_todo');
-//event listeners
-todoButton.addEventListener("click", addTodo)
-// filterOption.addEventListener("click", filterTodo)
 
-// classes
+todoButton.addEventListener("click", addTodo)
+
 const todoListObj = new TodoList();
 
-// Initializing
-// initializeTodoItems();
 
-//functions
+initializeTodoItems();
+
+
 function addTodo(event) {
     event.preventDefault();
 
@@ -20,30 +16,56 @@ function addTodo(event) {
 	todoItem.todoText = todoInput.value;
 	addTodoItemToList(todoItem);
 	
-    //Clear todo input VALUE
+
     todoInput.value = "";
 }
 
 function initializeTodoItems() {
-	var todoListData = JSON.parse(data);
-	for(let i = 0; i<todoListData.todoItems.length; i++ ) {
-		const todoItemJsonData = todoListData.todoItems[i];
-		const todoItem = new TodoItem();
-		todoItem.todoText = todoItemJsonData.todoText;
-		this.addTodoItemToList(todoItem);
-	}
+    var JSONData = {
+        "title": "This is a title",
+        "todoItems": [
+            {
+                "todoText": "This is a todo item 1",
+                "completed": false,
+                "deleted": false
+            },
+            {
+                "todoText": "This is a todo item 2",
+                "completed": false,
+                "deleted": false
+            },
+            {
+                "todoText": "This is a todo item 3",
+                "completed": false,
+                "deleted": false
+            },
+            {
+                "todoText": "This is a todo item 4",
+                "completed": false,
+                "deleted": false
+            }
+        ]
+    };
+
+    for(let i = 0; i<JSONData.todoItems.length; i++ ) {
+        const todoItemJsonData = JSONData.todoItems[i];
+        const todoItem = new TodoItem();
+        todoItem.todoText = todoItemJsonData.todoText;
+        this.addTodoItemToList(todoItem);
+    }
 }
 
+
 function addTodoItemToList(todoItem) {
-		// Create item
+
 		todoItem.createItem();
 		
-		// Append to Actual LIST
+
 		todoListObj.addTodoItem(todoItem);
 }
 
 
-//FILTERING THE TASKS ACCORDING THE OPTION
+
 function filterTodo(e) {
     const todos = todoListObj.todoList.childNodes;
     for(let i = 1; i<todos.length; i++ ){

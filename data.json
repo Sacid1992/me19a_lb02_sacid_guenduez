@@ -2,7 +2,22 @@
     "title": "This is a title",
     "todoItems": [
         {
-            "todoText": "This is a todo item",
+            "todoText": "This is a todo item 1",
+            "completed": false,
+            "deleted": false
+        },
+        {
+            "todoText": "This is a todo item 2",
+            "completed": false,
+            "deleted": false
+        },
+        {
+            "todoText": "This is a todo item 3",
+            "completed": false,
+            "deleted": false
+        },
+        {
+            "todoText": "This is a todo item 4",
             "completed": false,
             "deleted": false
         }
